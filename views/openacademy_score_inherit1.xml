@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit1_openacademy_score_form" model="ir.ui.view">
+            <field name="name">view.inherit1.openacademy.score.form</field>
+            <field name="model">openacademy.score</field>
+            <field name="inherit_id" ref="openacademy.view_openacademy_score_form"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='score_chinese']" position="replace">
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit2_openacademy_score_form" model="ir.ui.view">
+            <field name="name">view.inherit2.openacademy.score.form</field>
+            <field name="model">openacademy.score</field>
+            <field name="inherit_id" ref="openacademy.view_openacademy_score_form"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='score_english']" position="after">
+                    <field name="score_chinese"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

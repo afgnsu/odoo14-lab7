@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!--        <record id="openacademy_security_rule1" model="ir.rule">-->
+<!--            <field name="name">openacademy.security.rule1</field>-->
+<!--            <field ref="model_openacademy_student" name="model_id"/>-->
+<!--            <field name="domain_force">[('student_no1.id', '=', user.employee_ids.id )]</field>-->
+<!--            <field name="groups" eval="[(4,ref('openacademy.group_openacademy_1'))]"/>-->
+<!--        </record>-->
+        <record id="openacademy_security_rule2" model="ir.rule">
+            <field name="name">openacademy.security.rule2</field>
+            <field ref="model_openacademy_student" name="model_id"/>
+            <field name="domain_force">[('student_no1.department_id.id','in', [x.department_id.id for x in
+                user.employee_ids])]
+            </field>
+            <field name="groups" eval="[(4, ref('openacademy.group_openacademy_2'))]"/>
+        </record>
+        <record id="openacademy_security_rule3" model="ir.rule">
+            <field name="name">openacademy.security.rule3</field>
+            <field ref="model_openacademy_student" name="model_id"/>
+            <field name="groups" eval="[(4, ref('openacademy.group_openacademy_3'))]"/>
+            <field name="global" eval="1"/>
+        </record>
+
+    </data>
+</odoo>

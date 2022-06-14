@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_openacademy_score_tree" model="ir.ui.view">
+            <field name="name">view.openacademy.score.tree</field>
+            <field name="model">openacademy.score</field>
+            <field name="arch" type="xml">
+                <tree string="">
+
+                    <field name="score_year"/>
+                    <field name="score_student"/>
+                    <field name="score_chinese"/>
+                    <field name="score_math"/>
+                    <field name="score_english"/>
+                    <field name="score_total"/>
+                    <field name="score_avg"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_openacademy_score_form" model="ir.ui.view">
+            <field name="name">view.openacademy.score.form</field>
+            <field name="model">openacademy.score</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="score_year"/>
+                            <field name="score_student"/>
+                            <field name="score_chinese"/>
+                            <field name="score_math"/>
+                            <field name="score_english"/>
+                            <field name="score_total"/>
+                            <field name="score_avg"/>
+                            <field name="score_bank"/>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="action_openacademy_score_view" model="ir.actions.act_window">
+            <field name="name">學期成績記錄</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">openacademy.score</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+
+                </p>
+                <p>
+
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

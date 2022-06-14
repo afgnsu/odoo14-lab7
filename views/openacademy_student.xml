@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_openacademy_student_tree" model="ir.ui.view">
+            <field name="name">view.openacademy.student.tree</field>
+            <field name="model">openacademy.student</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="student_no"/>
+                    <field name="student_name"/>
+                    <field name="student_contact"/>
+                    <field name="student_class"/>
+                    <field name="student_birthday"/>
+                    <field name="student_fm"/>
+                    <field name="student_memo"/>
+                    <!--<field name="student_obj"/>-->
+                </tree>
+            </field>
+        </record>
+        <record id="view_openacademy_student_form" model="ir.ui.view">
+            <field name="name">view.openacademy.student.form</field>
+            <field name="model">openacademy.student</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="student_no"/>
+                                <field name="student_name"/>
+                                <field name="student_contact"/>
+                                <field name="student_class"/>
+                            </group>
+                            <group>
+                                <field name="student_birthday"/>
+                                <field name="student_fm"/>
+                                <field name="student_memo"/>
+                                <field name="student_obj" widget="image"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_openacademy_student_search" model="ir.ui.view">
+           <field name="name">view.openacademy.student.search</field>
+           <field name="model">openacademy.student</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="student_name" string="關鍵字" filter_domain="['|',('student_name','ilike',self),('student_no','ilike',self)]"/>
+                <filter string="男性" domain="[('student_fm','=','M')]" name="student_fm1"/>
+                <filter string="女性" domain="[('student_fm','=','Ｆ')]" name="student_fm2"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_openacademy_student_view" model="ir.actions.act_window">
+            <field name="name">學生基本資料</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">openacademy.student</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('openacademy.view_openacademy_student_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('openacademy.view_openacademy_student_form')}),]"/>
+            <field name="search_view_id" ref="view_openacademy_student_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

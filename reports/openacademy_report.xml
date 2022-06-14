@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report id="report_openacademy_studentclass_id"
+            model="openacademy.studentclass"
+            string="學員班級報表"
+            report_type="qweb-html"
+            name="openacademy.studentclass_report"
+            file="openacademy.studentclass_report"
+           />
+
+    </data>
+</odoo>

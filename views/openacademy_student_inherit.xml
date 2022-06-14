@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_openacademy_student_form" model="ir.ui.view">
+            <field name="name">view.inherit.openacademy.student.form</field>
+            <field name="model">openacademy.student</field>
+            <field name="inherit_id" ref="openacademy.view_openacademy_student_form"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='student_fm']" position="after">
+                    <field name="course_ids" widget="many2many_tags"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+
+            </field>
+        </record>
+         <!-- Inherit Form View to Modify it -->
+<!--         <record id="view_inherit__form" model="ir.ui.view">-->
+<!--             <field name="name">view.inherit..form</field>-->
+<!--             <field name="model"></field>-->
+<!--             <field name="inherit_id" ref=""/>-->
+<!--             <field name="arch" type="xml">-->
+<!--                 -->
+<!--                 &lt;!&ndash; position: after|before|replace|attributes|inside &ndash;&gt;-->
+<!--                 <xpath expr="//field[@name='']" position="">-->
+<!--                     &lt;!&ndash; Add your fields or attributes here &ndash;&gt;-->
+<!--                 </xpath>-->
+<!--                 -->
+<!--             </field>-->
+<!--         </record>-->
+
+    </data>
+</odoo>

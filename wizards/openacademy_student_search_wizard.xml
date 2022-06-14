@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="openacademy_student_form_wizard" model="ir.ui.view">
+            <field name="name">openacademy.student.form.wizard</field>
+            <field name="model">openacademy.student_search_wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>學生資料複合查詢</h1>
+                        <group>
+                            <field name="student_name"/>
+                            <field name="student_class"/>
+                            <field name="student_fm"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="run_student_search" string="查詢" class="oe_highlight"/>
+                        <button special="cancel" string="離開"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window id="openacademy_student_wizard_action" name="學生資料複合查詢"
+                    res_model="openacademy.student_search_wizard" src_model=""
+                    view_mode="form" target="new" multi="False"
+        />
+
+    </data>
+</odoo>

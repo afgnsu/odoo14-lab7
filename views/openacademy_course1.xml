@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="view_openacademy_course1_tree" model="ir.ui.view">
+           <field name="name">view.openacademy.course1.tree</field>
+           <field name="model">openacademy.course</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="course_no"/>
+                   <field name="course_name"/>
+                   <field name="course_type"/>
+               </tree>
+           </field>
+       </record>
+        <record id="view_openacademy_course1_form" model="ir.ui.view">
+            <field name="name">view.openacademy.course1.form</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="course_no"/>
+                            <field name="course_name"/>
+                            <field name="course_type"/>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="action_openacademy_course1_view" model="ir.actions.act_window">
+            <field name="name">課程基本資料</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">openacademy.course</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

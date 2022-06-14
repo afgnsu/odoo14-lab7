@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_openacademy_class_form" model="ir.ui.view">
+            <field name="name">view.inherit.openacademy.class.form</field>
+            <field name="model">openacademy.studentclass</field>
+            <field name="inherit_id" ref="openacademy.view_openacademy_student_class_form"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='student_line']/tree/field[@name='student_contact']" position="after">
+                    <field name="student_contact_phone"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

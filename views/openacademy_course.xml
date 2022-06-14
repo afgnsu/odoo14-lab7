@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_openacademy_course_tree" model="ir.ui.view">
+            <field name="name">view.openacademy.course.tree</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="course_no"/>
+                    <field name="course_name"/>
+                    <field name="course_type"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_openacademy_course_form" model="ir.ui.view">
+            <field name="name">view.openacademy.course.form</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="course_no"/>
+                            <field name="course_name"/>
+                            <field name="course_type"/>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="view_openacademy_course_search" model="ir.ui.view">
+           <field name="name">view.openacademy.course.search</field>
+           <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="course_no" string="關鍵字" filter_domain="['|',('course_no', 'ilike', self ),('course_name','ilike',self)]"/>
+                <filter string="必修" domain="[('course_type','=','1')]" name="course_type1"/>
+                <filter string="選修" domain="[('course_type','=','2')]" name="course_type2"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_openacademy_course_view" model="ir.actions.act_window">
+            <field name="name">課程基本資料</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">openacademy.course</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('openacademy.view_openacademy_course_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('openacademy.view_openacademy_course_form')}),]"/>
+            <field name="search_view_id" ref="view_openacademy_course_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

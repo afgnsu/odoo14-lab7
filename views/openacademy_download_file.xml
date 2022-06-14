@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="openacademy_excel_download_tree" model="ir.ui.view">
+            <field name="name">openacademy.excel.download.tree</field>
+            <field name="model">openacademy.excel_download</field>
+            <field name="arch" type="xml">
+                <tree import="false" create="false">
+                    <field name="create_uid" string="匯出所有人"/>
+                    <field name="create_date" string="匯出日期"/>
+                    <field name="xls_file" widget="binary" string="下載" filename="xls_file_name"/>
+                    <field name="xls_file_name" string="檔案名稱"/>
+                    <field name="run_desc" string="匯出說明描述"/>
+                </tree>
+            </field>
+        </record>
+        <record id="openacademy_excel_download_form" model="ir.ui.view">
+            <field name="name">openacademy.excel.download.form</field>
+            <field name="model">openacademy.excel_download</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="create_uid" string="匯出所有人" attrs="{'readonly':1}"/>
+                            <field name="create_date" string="匯出日期" attrs="{'readonly':1}"/>
+                            <field name="xls_file" widget="binary" string="下載" filename="xls_file_name"/>
+                            <field name="xls_file_name" string="檔案名稱" attrs="{'readonly':1}"/>
+                            <field name="run_desc" string="匯出說明描述" attrs="{'readonly':1}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="openacademy_excel_download_action" model="ir.actions.act_window">
+            <field name="name">學生成員資料匯出檔</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">openacademy.excel_download</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_openacademy_root" name="開源學園-學生成績系統" sequence="200"/>
+        <menuitem id="menu_openacademy_categ" name="主檔資料" parent="menu_openacademy_root" sequence="10"/>
+        <menuitem id="menu_openacademy_course_view" name="課程基本資料" parent="menu_openacademy_categ"
+                  action="action_openacademy_course_view" sequence="10"/>
+        <menuitem id="menu_openacademy_student_view" name="學生基本資料" parent="menu_openacademy_categ"
+                  action="action_openacademy_student_view" sequence="20"/>
+        <menuitem id="menu_openacademy_teacher_view" name="教職基本資料" parent="menu_openacademy_categ"
+                  action="action_openacademy_teacher_view" sequence="30"/>
+        <menuitem id="menu_openacademy_studentclass_view" name="班級導師基本資料" parent="menu_openacademy_categ"
+                  action="action_openacademy_student_class_view" sequence="40"/>
+
+    </data>
+</odoo>

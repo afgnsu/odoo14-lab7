@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="studentclass_report">
+            <t t-call="cfprint.html_container">
+                <h1 class="col-12 text-center">學員編輯資料列印中...</h1>
+                <h3 class="col-12 text-center">列印中..，請等待...</h3>
+                <script type="text/javascript">
+                var cfprint_addr = "127.0.0.1";   //列印伺服器監聽地址
+                var _delay_close = -1;          //列印完成後關閉視窗的延時時長(毫秒), -1則表示不關閉
+
+                /**定義主表結構**/
+                var _tablestudentclass = {
+                    "Name": "Studentclass",
+                    "Cols":[
+
+                        { "type": "str", "size": 20, "name": "student_class_name", "required": false },
+                        { "type": "str", "size": 50, "name": "student_teacher", "required": false },
+
+                    ],
+                    "Data":[ ]
+                };
+
+                /**定義從表結構**/
+                var _tablestudentclassLines = {
+                    "Name": "studentclassLines",
+                    "Cols":[
+
+                        { "type": "str", "size": 20, "name": "student_no", "required": false },
+                        { "type": "str", "size": 20, "name": "student_name", "required": false },
+                        { "type": "str", "size": 20, "name": "student_contact", "required": false },
+                        { "type": "str", "size": 20, "name": "student_class", "required": false },
+                        { "type": "str", "size": 10, "name": "student_fm", "required": false },
+                        { "type": "str", "size": 500, "name": "student_memo", "required": false },
+                    ],
+                    "Data":[ ]
+                };
+
+                <t t-foreach="docs" t-as="o">
+                    /*增加主表記錄*/
+                    _tablestudentclass.Data.push(
+                    {
+                       "student_class_name":"<t t-if="o['student_class_name']" t-esc="o['student_class_name']"/>",
+                       "student_teacher":"<t t-if="o['student_teacher']" t-esc="o['student_teacher']"/>",
+
+                    });
+                    <t t-foreach="o['student_line']" t-as="lines">
+                        _tablestudentclassLines.Data.push(
+                        {
+
+                         "student_no":"<t t-if="lines['student_no']" t-esc="lines['student_no']"/>",
+                         "student_name":"<t t-if="lines['student_name']" t-esc="lines['student_name']"/>",
+                         "student_contact":"<t t-if="lines['student_contact']" t-esc="lines['student_contact']"/>",
+                         "student_class":"<t t-if="lines['student_class']" t-esc="lines['student_class']"/>",
+                         "student_fm":"<t t-if="lines['student_fm']" t-esc="lines['student_fm']"/>",
+                         "student_memo":"<t t-if="lines['student_memo']" t-esc="lines['student_memo']"/>",
+                        });
+                    </t>
+
+                </t>
+                var _data = {"template": "base64:<t t-esc="get_cf_template(user.env, 'studentclass_report')" />", "ver": 4, "Copies": 1, "Duplex": 0, "Preview": 1, "Tables":[]};
+                _data["Tables"].push(_tablestudentclass);
+                _data["Tables"].push(_tablestudentclassLines);
+                var _reportData = JSON.stringify(_data);  //轉成json字元串
+                console.log(_reportData);
+                //生成資料之後，在cfprint_ext.js中會自動呼叫進行列印
+                </script>
+            </t>
+        </template>
+    </data>
+</odoo>

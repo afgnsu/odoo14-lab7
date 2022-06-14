@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="openacademy_score_import_form_wizard" model="ir.ui.view">
+            <field name="name">openacademy.score.import.form.wizard</field>
+            <field name="model">openacademy.score_import_wizard</field>
+            <field name="arch" type="xml">
+                <form string="EXCEL FILE IMPORT">
+                    <sheet>
+                        <h1>學生成績匯入精靈</h1>
+                        <group>
+                            <field name="excel_file"/>
+                        </group>
+                          <notebook>
+                             <page string="學生成績匯入excel範本">
+                                 <group>
+                                     <br/>
+                                     <img src="/openacademy/static/img/excel_file_sample.png"/>
+                                     <br/>
+                                     <a href="/openacademy/static/file/import_score.xlsx">下載樣版格式檔案</a>
+                                 </group>
+                             </page>
+                         </notebook>
+
+                    </sheet>
+                    <footer>
+                        <button type="object" name="score_action_import" string="成績匯入" class="oe_highlight"/>
+                        <button special="cancel" string="放棄離開"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="openacademy_score_import_action" model="ir.actions.act_window">
+            <field name="name">學生成績Excel匯入</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">openacademy.score_import_wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="openacademy_score_import_form_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+
+    </data>
+</odoo>

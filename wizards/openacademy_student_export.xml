@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="openacademy_export_form_wizard" model="ir.ui.view">
+            <field name="name">openacademy.export.form.wizard</field>
+            <field name="model">openacademy.student_export_wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>學生成員基本資料匯出</h1>
+                        <group>
+                            <field name="student_name"/>
+                            <field name="student_class"/>
+                            <field name="student_fm"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="student_export_list" string="匯出" class="oe_highlight"/>
+                        <button special="cancel" string="離開"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window id="openacademy_student_export_view_action" name="學生成員名單匯出精靈"
+                    res_model="openacademy.student_export_wizard" src_model=""
+                    view_mode="form" target="new" multi="False"
+        />
+
+
+    </data>
+</odoo>

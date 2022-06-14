@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="openacademy_course_1" model="openacademy.course">
+            <field name="course_no">A0001</field>
+            <field name="course_name">國文</field>
+            <field name="course_type">1</field>
+        </record>
+        <record id="openacademy_course_2" model="openacademy.course">
+            <field name="course_no">A0002</field>
+            <field name="course_name">數學</field>
+            <field name="course_type">1</field>
+        </record>
+        <record id="openacademy_course_3" model="openacademy.course">
+            <field name="course_no">A0003</field>
+            <field name="course_name">英文</field>
+            <field name="course_type">1</field>
+        </record>
+        <record id="openacademy_course_4" model="openacademy.course">
+            <field name="course_no">B0001</field>
+            <field name="course_name">歷史</field>
+            <field name="course_type">2</field>
+        </record>
+        <record id="openacademy_course_5" model="openacademy.course">
+            <field name="course_no">B0002</field>
+            <field name="course_name">地理</field>
+            <field name="course_type">2</field>
+        </record>
+        <record id="openacademy_course_6" model="openacademy.course">
+            <field name="course_no">A0004</field>
+            <field name="course_name">物理</field>
+            <field name="course_type">1</field>
+        </record>
+        <record id="openacademy_course_7" model="openacademy.course">
+            <field name="course_no">A0005</field>
+            <field name="course_name">化學</field>
+            <field name="course_type">1</field>
+        </record>
+        <record id="openacademy_course_8" model="openacademy.course">
+            <field name="course_no">B0003</field>
+            <field name="course_name">生物</field>
+            <field name="course_type">2</field>
+        </record>
+
+    </data>
+</odoo>

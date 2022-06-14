@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_openacademy_teacher_tree" model="ir.ui.view">
+            <field name="name">view.openacademy.teacher.tree</field>
+            <field name="model">openacademy.teacher</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="teacher_no"/>
+                    <field name="teacher_name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_openacademy_teacher_form" model="ir.ui.view">
+            <field name="name">view.openacademy.teacher.form</field>
+            <field name="model">openacademy.teacher</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="teacher_no"/>
+                            <field name="teacher_name"/>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="view_openacademy_teacher_search" model="ir.ui.view">
+           <field name="name">view.openacademy.teacher.search</field>
+           <field name="model">openacademy.teacher</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="teacher_no" string="關鍵字" filter_domain="['|',('teacher_no', 'ilike', self ),('teacher_name','ilike',self)]"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_openacademy_teacher_view" model="ir.actions.act_window">
+            <field name="name">教職主檔</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">openacademy.teacher</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('openacademy.view_openacademy_teacher_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('openacademy.view_openacademy_teacher_form')}),]"/>
+            <field name="search_view_id" ref="view_openacademy_teacher_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>
